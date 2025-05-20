@@ -2,10 +2,10 @@
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
+from summarizer.summarizer import generate_summary
 import streamlit as st
 import pandas as pd
-from summarizer.summarizer import generate_summary
+
 from utils.data_utils import (
     generate_profile_report,
     extract_text_from_pdf,
