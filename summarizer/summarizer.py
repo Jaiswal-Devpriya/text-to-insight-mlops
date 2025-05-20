@@ -1,27 +1,19 @@
-import openai
+from transformers import pipeline
 import pandas as pd
-import os
-from dotenv import load_dotenv
+# Load Hugging Face summarization model
+summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
 
-load_dotenv()  # Load .env file
-
-openai.api_key = os.getenv("OPENAI_API_KEY")
-
-def generate_summary(df: pd.DataFrame) -> str:
-    prompt = f"""You are a data analyst. Based on this dataset summary, generate an executive-level summary:
-    
-    Columns: {', '.join(df.columns)}
-    Sample rows: {df.head(3).to_string(index=False)}
-
-    Keep it concise and insight-driven.
-    """
+def generate_summary(input_data, is_text=False) -> str:
+    if is_text:
+        input_text = input_data
+    else:
+        input_text = f"""Columns: {', '.join(input_data.columns)}
+        Sample rows: {input_data.head(3).to_string(index=False)}"""
 
     try:
-        response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
-            messages=[{"role": "user", "content": prompt}],
-            temperature=0.5,
-        )
-        return response['choices'][0]['message']['content']
+        # Hugging Face models have a token limit (~1024 tokens for this one)
+        chunks = [input_text[i:i+1000] for i in range(0, len(input_text), 1000)]
+        summaries = [summarizer(chunk, max_length=200, min_length=50, do_sample=False)[0]['summary_text'] for chunk in chunks]
+        return "\n\n".join(summaries)
     except Exception as e:
         return f"Error generating summary: {str(e)}"

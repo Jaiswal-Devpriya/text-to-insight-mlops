@@ -4,6 +4,7 @@ FROM python:3.10
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
+ENV TRANSFORMERS_CACHE=/app/.hf_cache
 
 # Set working directory
 WORKDIR /app
@@ -21,3 +22,4 @@ EXPOSE 8501
 
 # Run Streamlit using Python module to avoid PATH issues
 CMD ["python", "-m", "streamlit", "run", "app/main.py", "--server.port=8501", "--server.enableCORS=false"]
+

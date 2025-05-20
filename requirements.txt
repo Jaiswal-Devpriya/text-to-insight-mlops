@@ -1,5 +1,7 @@
 streamlit==1.37.1
 pandas
-openai
 ydata-profiling
-python-dotenv
+python-docx
+PyMuPDF
+transformers
+torch
