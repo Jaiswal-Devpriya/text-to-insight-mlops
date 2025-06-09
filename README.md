@@ -1,10 +1,7 @@
 Text-to-Insight Dashboard Narrator
 A Streamlit-powered tool to auto-generate human-readable summaries from uploaded CSV, PDF, or DOCX files using data profiling and the BART summarization model from Hugging Face.
 
-Project Overview
-The Text-to-Insight Dashboard Narrator enables users to quickly understand both structured and unstructured data by combining:
 
-Automated data profiling for CSV files using ydata-profiling
 
 Text extraction from PDF and DOCX files
 
