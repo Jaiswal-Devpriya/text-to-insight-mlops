@@ -52,16 +52,16 @@ streamlit run app/main.py
 text-to-insight-mlops/
 │
 ├── app/
-│   └── main.py                # Streamlit UI and logic
+│ └── main.py # Streamlit UI and logic
 │
 ├── summarizer/
-│   └── summarizer.py          # Text summarization using BART
+│ └── summarizer.py # Text summarization using BART
 │
 ├── utils/
-│   └── data_utils.py          # Data profiling and file text extraction
+│ └── data_utils.py # Data profiling and file text extraction
 │
-├── requirements.txt           # Python dependencies
-└── README.md                  # Project documentation
+├── requirements.txt # Python dependencies
+└── README.md # Project documentation
 
 6.Example Use Case
 CSV: Upload a tabular dataset (e.g., sales data). The app will:
