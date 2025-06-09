@@ -1,19 +1,27 @@
 Text-to-Insight Dashboard Narrator
-A Streamlit tool that generates natural language insights from structured data or documents using pandas profiling and Hugging Face's BART summarization model.
+A Streamlit-powered tool to auto-generate human-readable summaries from uploaded CSV, PDF, or DOCX files using data profiling and the BART summarization model from Hugging Face.
 
 Project Overview
-The Text-to-Insight Dashboard Narrator is a lightweight application that helps users quickly understand datasets and documents. It accepts CSV, PDF, or DOCX files, extracts or profiles the content, and summarizes the key information using an LLM-based approach via the facebook/bart-large-cnn model.
+The Text-to-Insight Dashboard Narrator enables users to quickly understand both structured and unstructured data by combining:
+
+Automated data profiling for CSV files using ydata-profiling
+
+Text extraction from PDF and DOCX files
+
+Natural language summarization using Hugging Face’s facebook/bart-large-cnn model
+
+A simple and clean web interface built with Streamlit
 
 Features
-Upload CSV, PDF, or DOCX files
+Upload and analyze CSV, PDF, or DOCX files
 
-Generate a data profiling report for tabular data using ydata-profiling
+Generate data profiling reports using ydata-profiling
 
-Extract raw text from PDF and DOCX using PyMuPDF and python-docx
+Extract text from PDF and DOCX using PyMuPDF and python-docx
 
-Summarize data and documents using Hugging Face’s BART model
+Summarize datasets and documents using Hugging Face’s BART model
 
-Interactive and user-friendly Streamlit dashboard
+View structured data previews, profiling output, and AI-generated summaries in one place
 
 Tech Stack
 Python
@@ -31,14 +39,14 @@ Getting Started
 bash
 Copy
 Edit
-git clone https://github.com/yourusername/text-to-insight-narrator.git
-cd text-to-insight-narrator
+git clone https://github.com/Jaiswal-Devpriya/text-to-insight-mlops.git
+cd text-to-insight-mlops
 2. Install dependencies
 bash
 Copy
 Edit
 pip install -r requirements.txt
-3. Run the Streamlit app
+3. Run the app
 bash
 Copy
 Edit
@@ -47,52 +55,51 @@ File Structure
 bash
 Copy
 Edit
-text-to-insight-narrator/
+text-to-insight-mlops/
 │
 ├── app/
-│   └── main.py                  # Streamlit frontend logic
+│   └── main.py                # Streamlit UI and logic
 │
 ├── summarizer/
-│   └── summarizer.py            # Summarization logic using BART
+│   └── summarizer.py          # Text summarization using BART
 │
 ├── utils/
-│   └── data_utils.py            # Data profiling and text extraction
+│   └── data_utils.py          # Data profiling and file text extraction
 │
-├── requirements.txt             # Dependencies
-└── README.md                    # Project documentation
+├── requirements.txt           # Python dependencies
+└── README.md                  # Project documentation
 Example Use Case
-Upload a CSV of sales data:
+CSV: Upload a sales dataset. The app will:
 
-The app previews the data
+Show a data preview
 
-Generates a profile using ydata-profiling
+Generate a data profile
 
-Summarizes column types, missing values, and key patterns using the summarization model
+Use BART to summarize column structure and value patterns
 
-Upload a PDF or DOCX:
+PDF/DOCX: Upload a document. The app will:
 
-The app extracts the text content
+Extract the text content
 
-The summarizer generates a condensed narrative of the file’s contents
+Summarize the content in natural language
 
 Limitations
-Hugging Face models have a token limit (~1024 tokens); longer text is chunked
+Summarization model has a token limit (~1024 tokens); long input is split into chunks
 
-Currently supports only CSV, PDF, and DOCX
+Current version supports only CSV, PDF, and DOCX files
 
-Internet connection required to download the BART model if not cached
+Internet is required to load the BART model if not cached
 
 Future Improvements
-Support for Excel and other file types
+Add support for Excel files
 
-Integration with OpenAI or LangChain for advanced LLM capabilities
+Integrate OpenAI or LangChain for flexible LLM options
 
-Ability to ask questions over the uploaded data/documents
+Enable follow-up Q&A over uploaded data
 
-Improved chunk handling and summarization controls
+Improve summarization control (e.g., tone, length, chunk strategy)
 
 Contact
 Devpriya Jaiswal
 Email: jdevpriya2001@gmail.com
 LinkedIn: linkedin.com/in/devpriya-jaiswal
-
