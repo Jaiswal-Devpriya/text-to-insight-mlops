@@ -39,23 +39,16 @@ The Text-to-Insight Dashboard Narrator enables users to quickly understand both 
 
 ### 1. Clone the repository
 
-```bash
 git clone https://github.com/Jaiswal-Devpriya/text-to-insight-mlops.git
 cd text-to-insight-mlops
+
 2. Install dependencies
-bash
-Copy
-Edit
 pip install -r requirements.txt
-3. Run the app
-bash
-Copy
-Edit
+
+4. Run the app
 streamlit run app/main.py
-File Structure
-bash
-Copy
-Edit
+
+5.File Structure
 text-to-insight-mlops/
 │
 ├── app/
@@ -69,7 +62,8 @@ text-to-insight-mlops/
 │
 ├── requirements.txt           # Python dependencies
 └── README.md                  # Project documentation
-Example Use Case
+
+6.Example Use Case
 CSV: Upload a tabular dataset (e.g., sales data). The app will:
 
 Show a data preview
@@ -84,14 +78,14 @@ Extract raw text
 
 Generate a concise summary of the content
 
-Limitations
+7.Limitations
 BART model has a token limit (~1024 tokens); long input is chunked automatically
 
 Currently supports only CSV, PDF, and DOCX formats
 
 Requires internet to load Hugging Face model if not cached locally
 
-Future Improvements
+8.Future Improvements
 Add support for Excel files
 
 Integrate OpenAI API or LangChain for advanced summarization and Q&A
